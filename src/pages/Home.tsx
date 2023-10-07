@@ -14,15 +14,24 @@ const Home = () => {
   const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(name, suname);
-    
   };
+
+  const handleOnNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+   setName(event.target.value);
+  };
+
+   const handleOnSurNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+   setSurname(event.target.value);
+  };
+    
+    
 
 
   return (
     <>
       <form onSubmit={onHandleSubmit}>
-        Name: <input value={name} onChange={()=> setName("Elmar")}/> <br/>
-        Surname: <input value={suname} onChange={()=> setSurname("Amanov") }/> <br/>
+        Name: <input value={name} onChange={handleOnNameChange}/> <br/>
+        Surname: <input value={suname} onChange={handleOnSurNameChange}/> <br/>
         <button type="submit"> Add user </button>
       </form>
       <br/><br/>
