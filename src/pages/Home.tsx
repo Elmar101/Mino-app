@@ -23,6 +23,11 @@ const Home = () => {
    const handleOnSurNameChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
    setSurname(event.target.value);
   };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+    if(event.target.name === 'name') setName(event.target.value);
+    else if(event.target.name === 'surname') setSurname(event.target.value);
+  };
     
     
 
@@ -30,8 +35,8 @@ const Home = () => {
   return (
     <>
       <form onSubmit={onHandleSubmit}>
-        Name: <input value={name} onChange={handleOnNameChange}/> <br/>
-        Surname: <input value={suname} onChange={handleOnSurNameChange}/> <br/>
+        Name: <input name="name" value={name} onChange={handleOnNameChange}/> <br/>
+        Surname: <input name="surname" value={suname} onChange={handleOnSurNameChange}/> <br/>
         <button type="submit"> Add user </button>
       </form>
       <br/><br/>
